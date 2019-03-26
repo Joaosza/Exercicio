@@ -1,37 +1,44 @@
+#include <iostream>
+#include <string>
+#include <list>
+#include <iterator>
+
+using namespace std;
+
+struct prod_t {
+	string nome;
+  int codigo;
+  double preco;
+  int qtde_estoque;
+
+};
+
+list<prod_t> listprod;
+
+void cadastrar(){
+
+	prod_t *produtos;
+	produtos = new prod_t[n];
+
+			cout << "Nome do Produto." << endl;
+			cin >> produtos.nome;
+
+			cout << "Codigo do produto." << endl;
+			cin >> produtos.codigo;
+
+			cout << "Preço do Produto." <<endl;
+			cin >> produtos.preco;
+
+			cout << "Quantidade que ficara em estoque." <<endl;
+			cin >>produtos.qtde_estoque;
+
+	}
+
+
 
 int main ()
 {
 
-	prod_t *produtos;
-
-  cout << "A mais algum produto para adicionar ?" << endl;
-  cout << "Sim = 1 ou Não = 2" << endl;
-  cin >> n;
-
-  produtos = new prod_t[n];
-
-  while (n == 1){
-    for (i=0; i<n; i++){
-
-      cout << "Nome do Produto." << endl;
-      cin >> produtos[i].nome;
-
-      cout << "Codigo do produto." << endl;
-      cin >> produtos[i].codigo;
-
-      cout << "Preço do Produto." <<endl;
-      cin >> produtos[i].preco;
-
-      cout << "Quantidade que ficara em estoque." <<endl;
-      cin >>produtos[i].qtde_estoque;
-
-      cout << "\n";
-      cout << "A mais algum produto para adicionar ?" << endl;
-      cout << "Sim = 1 ou Não = 2" << endl;
-    	cin >> n;
-    }
-
-  }
 
   for (i=0; i<n; i++) {
     cout << "Produto - " << i << produtos[i].nome << endl;

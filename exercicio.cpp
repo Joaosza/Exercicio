@@ -13,9 +13,9 @@ struct prod_t {
 
 };
 
-list<prod_t> listprod;
+list<prod_t> listprod; //Criando uma lista de Produtos
 
-void cadastro(){
+void cadastro(){ //Criando um função de cadastro de produtos
 	prod_t prod;
 
 	cout << "Nome do Produto : ";
@@ -31,7 +31,7 @@ void cadastro(){
 	cin >> prod.qtde_estoque;
 
 	cout << "\n";
-	listprod.push_back(prod);
+	listprod.push_back(prod); //Guardando as informações na lista
 }
 
 void imprimi (list<prod_t>& lista){
@@ -50,64 +50,23 @@ void imprimi (list<prod_t>& lista){
 
 int main ()
 {
-
-
-	list<prod_t> listprod;
-
-	void cadastro(){
-		prod_t prod;
-
-		cout << "Nome do Produto : ";
-		cin >> prod.nome;
-
-		cout << "Codigo do Produto : ";
-		cin >> prod.codigo;
-
-		cout << "Preço do Produto : ";
-		cin >> prod.preco;
-
-		cout << "Quantidade do Produto Cadastrado : ";
-		cin >> prod.qtde_estoque;
-
-		cout << "\n";
-		listprod.push_back(prod);
-	}
-
-	void imprimi (list<prod_t>& lista){
-		list<prod_t>::iterator i; //Aqui esta criando um interator de Produtos
-
-		i = lista.begin();
-
-		while (i != lista.end()) {
-			std::cout << "Nome Produto : " << (*i).nome << endl;
-			std::cout << "Codigo Produto : " << (*i).codigo << endl;
-			std::cout << "Preco do Produto : " << (*i).preco << endl;
-			std::cout << "Quantidade em estoque : " << (*i).qtde_estoque << endl;
-			i++;
-		}
-	}
-
-
-
-
-
-	string control;
+	string controle;
 	int cont = 0;
 
 	do{
-		cout << "Quer cadastrar mais algum Produto ? \n";
+		cout << "Gostaria de cadastrar mais algum Produto ? \n";
 		cout << "Sim = s ou Não = 0 : ";
-		cin >> control;
-		cout << "" << endl;
-		if(control == "s"){
+		cin >> controle;
+		cout << "\n";
+		if(controle == "s"){
 			cadastro();
 			cont++;
 		}
-	} while (control == "s");
+	} while (controle == "s");
 
 	if(cont > 0)
 			imprimi(listprod);
-	cout << "saindo do programa ...";
+	cout << "Saindo do programa ...";
 
 	return 0;
 }
