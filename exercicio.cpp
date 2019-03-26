@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
-#include <vector>
-
+#include <list>
+#include <iterator>
 
 using namespace std;
 
@@ -13,47 +13,61 @@ struct prod_t {
 
 };
 
+list<prod_t> listprod;
+
+void cadastro(){
+	prod_t prod;
+
+	cout << "Nome do Produto : ";
+	cin >> prod.nome;
+
+	cout << "Codigo do Produto : ";
+	cin >> prod.codigo;
+
+	cout << "Preço do Produto : ";
+	cin >> prod.preco;
+
+	cout << "Quantidade do Produto Cadastrado : ";
+	cin >> prod.qtde_estoque;
+
+	cout << "\n";
+	listprod.push_back(prod);
+}
+
+void imprimi (list<prod_t>& lista){
+	list<prod_t>::iterator i; //Aqui esta criando um interator de Produtos
+
+	i = lista.begin();
+
+	while (i != lista.end()) {
+		std::cout << "Nome Produto : " << (*i).nome << endl;
+		std::cout << "Codigo Produto : " << (*i).codigo << endl;
+		std::cout << "Preco do Produto : " << (*i).preco << endl;
+		std::cout << "Quantidade em estoque : " << (*i).qtde_estoque << endl;
+		i++;
+	}
+}
+
 int main ()
 {
-	int n, i;
-	prod_t *produtos;
+	string control;
+	int cont = 0;
 
-  cout << "A mais algum produto para adicionar ?" << endl;
-  cout << "Sim = 1 ou Não = 2" << endl;
-  cin >> n;
+	do{
+		cout << "Quer cadastrar mais algum Produto ? \n";
+		cout << "Sim = s ou Não = 0 : ";
+		cin >> control;
+		cout << "" << endl;
+		if(control == "s"){
+			cadastro();
+			cont++;
+		}
+	} while (control == "s");
 
-  produtos = new prod_t[n];
+	if(cont > 0)
+			imprimi(listprod);
 
-  while (n == 1){
-    for (i=0; i<n; i++){
-
-      cout << "Nome do Produto." << endl;
-      cin >> produtos[i].nome;
-
-      cout << "Codigo do produto." << endl;
-      cin >> produtos[i].codigo;
-
-      cout << "Preço do Produto." <<endl;
-      cin >> produtos[i].preco;
-
-      cout << "Quantidade que ficara em estoque." <<endl;
-      cin >>produtos[i].qtde_estoque;
-
-      cout << "\n";
-      cout << "A mais algum produto para adicionar ?" << endl;
-      cout << "Sim = 1 ou Não = 2" << endl;
-    	cin >> n;
-    }
-
-  }
-
-  for (i=0; i<n; i++) {
-    cout << "Produto - " << i << produtos[i].nome << endl;
-    cout << "Codigo -  " << i << produtos[i].codigo << endl;
-    cout << "Produto - " << i << produtos[i].preco << endl;
-    cout << "Produto - " << i << produtos[i].qtde_estoque << endl;
-  }
-
+	cout << "saindo do programa ...";
 
 	return 0;
 }
