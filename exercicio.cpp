@@ -5,7 +5,7 @@
 
 using namespace std;
 
-struct prod_t {
+struct prod_t { //Local de estrutação
 	string nome;
   int codigo;
   double preco;
@@ -19,7 +19,7 @@ void cadastro(){ //Criando um função de cadastro de produtos
 	prod_t prod;
 
 	cout << "Nome do Produto : ";
-	cin >> prod.nome;
+	cin >> prod.nome; //Armazena o dado coletado
 
 	cout << "Codigo do Produto : ";
 	cin >> prod.codigo;
@@ -34,17 +34,17 @@ void cadastro(){ //Criando um função de cadastro de produtos
 	listprod.push_back(prod); //Guardando as informações na lista
 }
 
-void imprimi (list<prod_t>& lista){
-	list<prod_t>::iterator i; //Aqui esta criando um interator de Produtos
+void imprimir (){
 
-	i = lista.begin();
+	list<prod_t>::iterator i;
+	i = listprod.begin();
 
-	while (i != lista.end()) {
+	while(i != listprod.end()){
 		std::cout << "Nome Produto : " << (*i).nome << endl;
 		std::cout << "Codigo Produto : " << (*i).codigo << endl;
 		std::cout << "Preco do Produto : " << (*i).preco << endl;
 		std::cout << "Quantidade em estoque : " << (*i).qtde_estoque << endl;
-		i++;
+
 	}
 }
 
@@ -65,7 +65,7 @@ int main ()
 	} while (controle == "s");
 
 	if(cont > 0)
-			imprimi(listprod);
+			imprimir(listprod);
 	cout << "Saindo do programa ...";
 
 	return 0;
